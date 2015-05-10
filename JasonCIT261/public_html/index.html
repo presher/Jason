@@ -25,7 +25,13 @@ function popup() {
         <p>Code taken from tizag.com and modified</p>
         <input type="button" value="Try Me!" onclick="popup()"><br />
 <a href="#" onmouseover="popup()" onMouseout="">
-Hover Me!</a>
+Mouse Over Me!</a>
+        
+        <h1>DOM Sandbox Code Example Broken</h1>
+        <p>Code taken from tizag.com and modified</p>
+        <input type="button" value="Try Me!" onclick=""><br /><!--Removed the onclick function and the mouseover function-->
+<a href="#" onmouseover="" onMouseout="">
+Mouse Over Me!</a>
         
         <h1>JSON SandBox Example</h1>
         <p>Code From W3Schools</p>
@@ -50,6 +56,41 @@ function myFunction(response) {
     var out = "<table>";
 
     for(i = 0; i < arr.length; i++) {
+        out += "<tr><td>" +
+        arr[i].Name +
+        "</td><td>" +
+        arr[i].City +
+        "</td><td>" +
+        arr[i].Country +
+        "</td></tr>";
+    }
+    out += "</table>"
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
+<h1>JSON SandBox Example Broken</h1>
+        <p>Code From W3Schools</p>
+        <h1>Customers</h1>
+<div id="id01"></div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "http://www.w3schools.com/website/customers_mysql.php";
+
+xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<table>";
+
+    for(i = 0; i < arr.length;)//removed the i++ {
         out += "<tr><td>" +
         arr[i].Name +
         "</td><td>" +
