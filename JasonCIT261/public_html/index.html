@@ -19,6 +19,49 @@ function popup() {
 }
 //-->
 </script>
+<style>
+    h1{
+   color: green; 
+    
+}
+
+#working{
+  animation-duration: .5s;
+  -webkit-animation-duration: .5s;
+  animation-name: thumb;
+  -webkit-animation-name: thumb;  
+}
+
+
+#broken{
+ animation-duration: 2s;
+ animation-name: thumb;
+//common problem is not to include all of the browswers prefixes -webkit- Android, Chrome
+
+    
+}
+
+@keyframes thumb {
+    0% { transform: scale(1) rotate(-10deg);}
+   50% { transform: scale(0.5) rotate(10deg);} 
+   75% {trasform: scale (0.9) rotate(-10deg);}
+   100% {transform: scale(1)rotate(10deg);}   
+        
+    }
+     
+  
+
+@-webkit-keyframes thumb {
+    
+   0% { -webkit-transform: scale(1) rotate(-10deg);}
+   50% { -webkit-transform: scale(0.5) rotate(10deg);}
+   75% { -webkit-transform: scale(0.9)rotate(-10deg)}
+   100% { -webkit-transform: scale(1) rotate(10deg);}
+      
+        
+   }
+</style>
+
     </head>
     <body>
         <h1>DOM Sandbox Code Example</h1>
@@ -88,9 +131,9 @@ xmlhttp.send();
 function myFunction(response) {
     var arr = JSON.parse(response);
     var i;
-    var out = "<table>";
+    var outof = "<table>";
 
-    for(i = 0; i < arr.length;)//removed the i++ {
+    for(i = 0; i < arr.length;){//removed the i++ 
         out += "<tr><td>" +
         arr[i].Name +
         "</td><td>" +
@@ -99,9 +142,15 @@ function myFunction(response) {
         arr[i].Country +
         "</td></tr>";
     }
-    out += "</table>"
+    outof += "</table>"
     document.getElementById("id01").innerHTML = out;
 }
 </script>
+ <div>Sandbox code: Animations</div>
+ <p>Code from Robbie</p>
+        <h1>Shaking</h1>
+        <img id="working" src="http://gdurl.com/GTn9" alt="Thumbs up image">
+        <h1>Broken</h1>
+        <img id="broken" src="http://gdurl.com/GTn9" alt="Thumbs up image">
     </body>
 </html>
