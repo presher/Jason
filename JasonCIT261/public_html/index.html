@@ -19,6 +19,18 @@ function popup() {
 }
 //-->
 </script>
+<script type="text/javascript">
+            function time(){
+                var getTime = document.getElementById("timehere").innerHTML = Date();
+                window.alert('Date: ' + getTime );
+                
+            }
+            </script>
+            <script type="text/javascript">
+            function time(){
+                var getTime = document.getElementById("timehere1").innerHTML = Date();
+                window.alert('Date: ' + getTime );
+            </script>
 <style>
     h1{
    color: green; 
@@ -146,11 +158,24 @@ function myFunction(response) {
     document.getElementById("id01").innerHTML = out;
 }
 </script>
+<script type="text/javascript">
+    function work(){
+       document.getElementById("working").innerHTML = out;
+    }
+    </script>
  <div>Sandbox code: Animations</div>
  <p>Code from Robbie</p>
         <h1>Shaking</h1>
-        <img id="working" src="http://gdurl.com/GTn9" alt="Thumbs up image">
+        <img id="working" src="http://gdurl.com/GTn9" alt="Thumbs up image" onmouseover="work()">
         <h1>Broken</h1>
         <img id="broken" src="http://gdurl.com/GTn9" alt="Thumbs up image">
+        
+        <h1>Week 3 May 10-May16</h1>
+        
+            <h1 id="timehere"></h1>
+            <input type="button" value="Get Time" onclick="time()">
+            
+            <h1 id="timehere1"></h1>
+            <input type="button" value="Get Time" onclick="time"><!--Missing the () to indicate call to function-->
     </body>
 </html>
