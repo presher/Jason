@@ -104,8 +104,64 @@ function popup() {
       
         
    }
-</style>
+   body {
+    
+    background-color:lightgray;
+    
+}
 
+#main-header {
+    
+    text-align:center;
+    
+}
+</style>
+<script> //AJAX from Johnatahn Lundberg
+            function loadXMLDoc() //This can be named whatever you want; just make sure you also change the onclick for the button.
+            {
+                var ajaxRequest;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    ajaxRequest=new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    ajaxRequest=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                ajaxRequest.onreadystatechange=function()
+                {
+                    if (ajaxRequest.readyState==4 && ajaxRequest.status==200)
+                    {
+                        document.getElementById("myDiv").innerHTML=ajaxRequest.responseText; //'myDiv' refers to the target div we're pulling the data to.
+                    }
+                }
+                ajaxRequest.open("GET","newfile.txt",true); //'newfile.txt' is the file we're pulling from the server.  You can name this whatever you want; just be sure to also change the name of the file.
+                ajaxRequest.send();
+            }
+        </script>
+        <script>
+            function loadXMLDoc2() //This can be named whatever you want; just make sure you also change the onclick for the button.
+            {
+                var ajaxRequest;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    ajaxRequest=new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    ajaxRequest=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                ajaxRequest.onreadystatechange=function()
+                {
+                    if (ajaxRequest.readyState==4 && ajaxRequest.status==200)
+                    {
+                        document.getElementById("myDiv2").innerHTML=ajaxRequest.responseText; //'myDiv' refers to the target div we're pulling the data to.
+                    }
+                }
+                ajaxRequest.open("GET","mytextfile.txt",true); //In this case, 'mytextfile.txt' doesn't exist, so the button associated with this script won't work correctly.
+                ajaxRequest.send();
+            }
+        </script>
     </head>
     <body>
         <h1>DOM Sandbox Code Example</h1>
@@ -210,5 +266,31 @@ function myFunction(response) {
             
             <h1 id="timehere1"></h1>
             <input type="button" value="Get Time" onclick="time"><!--Missing the () to indicate call to function-->
+            
+             <div id="myDiv"> <!--From Johnathan Lundberg-->
+            <p>AJAX can replace this text with text from a file on the server.</p>
+            <p>Click on "Change Content" below to change this text.</p>
+        </div>
+        <button type="button" onclick="loadXMLDoc()">Change Content</button>
+        <br />
+        <br />
+        <div id="myDiv2">
+            <p>If the resource doesn't exist on the server, nothing will happen
+                when you click the button.</p>
+            <p>Let's try finding a non-existent resource called 'mytextfile.txt.'</p>
+        </div>
+        <button type="button" onclick="loadXMLDoc2()">Change Content</button>
+        <br />
+        <br />
+        <div id="myDiv">
+            <p>Another thing you need to worry about is making sure that you are
+            changing the correct div.  The javascript function will only change
+            the first div with the associated id.  This div and the first div are
+            both named 'myDiv,' and the script associated with the button below
+            applies the text in the .txt file to the div id'd as 'myDiv.'</p>
+            <p>However, when you click this button, it still only affects the first
+                occurrence of the 'myDiv' id.
+        </div>
+        <button type="button" onclick="loadXMLDoc()">Change Content</button>
     </body>
 </html>
