@@ -20,10 +20,42 @@ function popup() {
 //-->
 </script>
 <script type="text/javascript">
-            function time(){
-                var getTime = document.getElementById("timehere").innerHTML = Date();
-                window.alert('Date: ' + getTime );
-                
+             function time(){
+                var d = new Date();
+               var myTime = d.getDay();
+                       document.getElementById("timehere").innerHTML = myTime;
+                window.alert('Day: ' + myTime);
+                if ( myTime === 0){
+                     document.getElementById("today").innerHTML = "Sunday";
+                    //window.alert("Sunday");
+                }
+                else if(myTime === 1){
+                    document.getElementById("today").innerHTML = "Monday";
+                   // window.alert("Monday");
+                }
+                 else if(myTime === 2){
+                      document.getElementById("today").innerHTML = "Tuesday";
+                   // window.alert("Tuesday");
+                }
+                 else if(myTime === 3){
+                      document.getElementById("today").innerHTML = "Wednesday";
+                    //window.alert("Wednesday");
+                }
+                 else if(myTime === 4){
+                      document.getElementById("today").innerHTML = "Thursday";
+                    //window.alert("Thursday");
+                }
+                 else if(myTime === 5){
+                      document.getElementById("today").innerHTML = "Friday";
+                    //window.alert("Friday");
+                }
+                else if(myTime === 6){
+                     document.getElementById("today").innerHTML = "Saturday";
+                    //window.alert("Saturday");
+                }
+                else{
+                    window.alert("What Day is it?");
+                }
             }
             </script>
             <script type="text/javascript">
@@ -170,9 +202,10 @@ function myFunction(response) {
         <h1>Broken</h1>
         <img id="broken" src="http://gdurl.com/GTn9" alt="Thumbs up image">
         
-        <h1>Week 3 May 10-May16</h1>
+         <h1>Week 3 May 10-May16</h1>
         
-            <h1 id="timehere"></h1>
+          <h2 id="timehere"></h2> <p>day of the week</p>
+            <h3 id="today"></h3> <p>Is today</p>
             <input type="button" value="Get Time" onclick="time()">
             
             <h1 id="timehere1"></h1>
