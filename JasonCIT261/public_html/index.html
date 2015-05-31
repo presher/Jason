@@ -250,6 +250,25 @@ function myFunction(response) {
     function work(){
        document.getElementById("working").innerHTML = out;
     }
+    <script>
+function getName(){
+//employees[0].firstName="Gilbert";
+var x = document.getElementById("emps").value;
+var i = 0;
+var name="";
+while( i < x){
+   //name += employees + i;
+    i++;
+}
+ document.getElementById("demo").innerHTML = 
+        employees[x].firstName + " " + employees[x].lastName;
+
+}
+</script>
+
+    <input type="number" id="emps" onclick="getName()" value="3">
+<!--<input type="submit" v-->
+    <p id="demo"></p>
     </script>
  <div>Sandbox code: Animations</div>
  <p>Code from Robbie</p>
